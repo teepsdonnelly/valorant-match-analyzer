@@ -25,18 +25,16 @@ https://docs.google.com/spreadsheets/d/1Qi7JTkGv01WvvGa_dr-zYwMWd2pv8o8vxrD9uFpT
 
 - When the new window/editor comes up, delete all code currently in there and paste the code you copied to your clipboard above and save it
 
-- Change the selected function at the top with the dropdown to "fetchLatestMatch"
+- Click on the "Run" button at the top of the code editor to install the script and add a menu item to the top of your Google Sheet
 
-- Click on the "Run" button at the top of the code editor
-
-- Go through the various steps to give the app the permissions it asks for and it should run
-
-- Wait about 5-15 seconds for data from your last match to populate
-
-If all is working as expected, it should populate a new row of data.
+- Go through the various steps to give the app the permissions it asks for (note that it will give you some warnings. Read through them and decide for yourself if you're comfortable, but it's just warning you that you're not a verified developer. I will likely make this a downloadable addon for sheets in the future, but I've decided to open-source it for now.)
 
 --- 
 
 Once you've completed these steps, a new menu item should show up in your sheet. Whenever you want to pull new match data after a match, just do the following:
 
 - In the top menu bar of Google Sheets, Click "Valorant Matches (Competitive)" -> "Add Latest Match Data"
+
+- Wait about 5-15 seconds for data from your last match to populate
+
+- Now, whenever you complete a match, come to this sheet to pull it in with the menu item at the top!
