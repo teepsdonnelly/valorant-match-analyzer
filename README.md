@@ -1,6 +1,6 @@
 # Valorant Match Analyzer
 
-This is a lightweight valorant match data analyzer.
+This is a lightweight Valorant match data analyzer.
 
 The intended purpose is to understand whether or not your queue was stacked against you based on one metric: your average team winrate across all players versus the enemy average team winrate across all players. It currently only supports overall winrate, and not act winrate since the data from Tracker.gg is not lending itself to understand current act data through the API.
 
