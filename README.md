@@ -6,7 +6,7 @@ The intended purpose is to understand whether or not your queue was stacked agai
 
 The way to use this is:
 
-- Play a competitive valorant match
+- Play a competitive Valorant match
 - Go to the Google sheet and pull the data for that match right away (this script only pulls data for your last match)
 
 The data needs to be pulled right away to ensure that you aren't getting skewed average win rate data. You want the win rates of all teammates and enemies immediately after your game has concluded.
