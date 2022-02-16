@@ -218,7 +218,7 @@ function addMatchToSpreadsheet(match) {
   var fromRange = sheet.getRange(lastRow, 6, 1, 3);
   var toRange = sheet.getRange(lastRow + 1, 6, 1, 3);
 
-  sheet.appendRow("", match["timestamp"], match["map"], match["myTeamWinRate"], match["enemyTeamWinRate"], "", "", "", match["winner"], match["scoreDelta"]);
+  sheet.appendRow(["", match["timestamp"], match["map"], match["myTeamWinRate"], match["enemyTeamWinRate"], "", "", "", match["winner"], match["scoreDelta"]])
 
   fromRange.copyTo(toRange, { contentsOnly : false });
 
