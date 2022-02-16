@@ -77,9 +77,11 @@ function buildMatchData(matchData) {
   var timestamp = matchData["data"]["matches"][0]["metadata"]["timestamp"];
   var matchOutcome = matchData["data"]["matches"][0]["metadata"]["result"];
   var matchId = matchData["data"]["matches"][0]["attributes"]["id"];
+  var matchDate = new Date(timestamp);
+  var formattedDate = Utilities.formatDate(matchDate, Intl.DateTimeFormat().resolvedOptions().timeZone,"M/dd/yyyy HH:mm:ss");
 
   match["map"] = mapName;
-  match["timestamp"] = timestamp;
+  match["timestamp"] = matchDate;
 
   if (matchOutcome == "defeat") {
     match["winner"] = "Enemy";
