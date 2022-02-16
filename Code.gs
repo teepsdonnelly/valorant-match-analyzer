@@ -72,8 +72,14 @@ function buildMatchData(matchData) {
   // For building our match dictionary
   var match = {};
 
-  // Extract our winner from the match result
+  // Extract our details from the match result
+  var mapName = matchData["data"]["matches"][0]["metadata"]["mapName"];
+  var timestamp = matchData["data"]["matches"][0]["metadata"]["timestamp"];
   var matchOutcome = matchData["data"]["matches"][0]["metadata"]["result"];
+  var matchId = matchData["data"]["matches"][0]["attributes"]["id"];
+
+  match["map"] = mapName;
+  match["timestamp"] = timestamp;
 
   if (matchOutcome == "defeat") {
     match["winner"] = "Enemy";
@@ -81,12 +87,12 @@ function buildMatchData(matchData) {
     match["winner"] = "Team";
   }
 
-  var matchId = matchData["data"]["matches"][0]["attributes"]["id"];
-
+  // Get our match details so we can fetch info on our teammates and enemies
   var matchDetail = getMatchDetail(matchId);
 
   match["myTeamWinRate"] = matchDetail["myTeamWinRate"];
   match["enemyTeamWinRate"] = matchDetail["enemyTeamWinRate"];
+  match["scoreDelta"] = matchDetail["scoreDelta"];
 
   return match;
 
@@ -110,8 +116,12 @@ function getMatchDetail(matchId) {
 
   var matchData = {};
 
+  var roundsWon = matchDetails["data"]["segments"][0]["stats"]["roundsWon"]["value"];
+  var roundsLost = matchDetails["data"]["segments"][0]["stats"]["roundsLost"]["value"];
+
   matchData["myTeamWinRate"] = myTeamWinRateAverageOverall;
   matchData["enemyTeamWinRate"] = enemyTeamWinRateAverageOverall;
+  matchData["scoreDelta"] = Math.abs(roundsLost - roundsWon);
 
   return matchData;
 
@@ -205,10 +215,10 @@ function addMatchToSpreadsheet(match) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.getActiveSheet();
   var lastRow = sheet.getLastRow();
-  var fromRange = sheet.getRange(lastRow, 4, 1, 3);
-  var toRange = sheet.getRange(lastRow + 1, 4, 1, 3);
+  var fromRange = sheet.getRange(lastRow, 6, 1, 3);
+  var toRange = sheet.getRange(lastRow + 1, 6, 1, 3);
 
-  sheet.appendRow(["", match["myTeamWinRate"], match["enemyTeamWinRate"], "", "", "", match["winner"]]);
+  sheet.appendRow("", match["timestamp"], match["map"], match["myTeamWinRate"], match["enemyTeamWinRate"], "", "", "", match["winner"], match["scoreDelta"]);
 
   fromRange.copyTo(toRange, { contentsOnly : false });
 
