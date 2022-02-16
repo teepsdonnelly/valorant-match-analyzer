@@ -1,4 +1,4 @@
-# Valorant Match Analyzer Sheets
+# Valorant Match Analyzer
 
 This is a lightweight valorant match data analyzer.
 
