@@ -25,7 +25,7 @@ https://docs.google.com/spreadsheets/d/1Qi7JTkGv01WvvGa_dr-zYwMWd2pv8o8vxrD9uFpT
 
 - When the new window/editor comes up, delete all code currently in there and paste the code you copied to your clipboard above and save it
 
-- Click on the "Run" button at the top of the code editor
+- Click on the "Run" button at the top of the code editor to install the script and add a menu item to the top of your Google Sheet
 
 - Go through the various steps to give the app the permissions it asks for (note that it will give you some warnings. Read through them and decide for yourself if you're comfortable, but it's just warning you that you're not a verified developer. I will likely make this a downloadable addon for sheets in the future, but I've decided to open-source it for now.)
 
